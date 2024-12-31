@@ -1,0 +1,31 @@
+name: Build and Test
+on: [push, pull_request]
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: artifacts
+          path: |
+            target/*.jar
+            target/dist.zip
+      - name: Static Analysis
+        run: mvn -B site --file pom.xml
+      - uses: actions/upload-artifact@v4
+        with:
+          name: analysis
+          path: |
+            target/checkstyle-result.xml
+            target/spotbugsXml.xml
+            target/site/

@@ -1,0 +1,48 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+    <id>dist</id>
+
+    <formats>
+        <format>zip</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <fileSets>
+        <!-- individual top-level files -->
+        <fileSet>
+            <directory>${project.basedir}</directory>
+            <includes>
+                <include>README.md</include>
+                <include>LICENSE</include>
+            </includes>
+            <useDefaultExcludes>true</useDefaultExcludes>
+        </fileSet>
+
+        <!-- samples -->
+        <fileSet>
+            <directory>src/examples/java</directory>
+            <outputDirectory>/Samples</outputDirectory>
+            <useDefaultExcludes>true</useDefaultExcludes>
+        </fileSet>
+    </fileSets>
+
+    <dependencySets>
+        <!-- main jar artifact -->
+        <dependencySet>
+            <outputDirectory>/</outputDirectory>
+        </dependencySet>
+
+        <!-- javadoc -->
+        <dependencySet>
+            <outputDirectory>/doc</outputDirectory>
+            <includes>
+                <include>*:javadoc</include>
+            </includes>
+            <useProjectAttachments>true</useProjectAttachments>
+            <unpack>true</unpack>
+        </dependencySet>
+    </dependencySets>
+</assembly>
+
