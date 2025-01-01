@@ -188,7 +188,7 @@ public final class TableMetadata extends MetadataCollection {
      * @param valueType The type of the property.
      * @param defaultValue The default value of the property.
      */
-    public MetadataPropertyKey(String name, ValueType valueType, Object defaultValue) {
+    MetadataPropertyKey(String name, ValueType valueType, Object defaultValue) {
       this.name = name;
       this.valueType = valueType;
       this.defaultValue = defaultValue;

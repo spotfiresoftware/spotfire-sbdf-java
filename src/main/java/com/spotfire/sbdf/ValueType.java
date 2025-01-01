@@ -833,7 +833,7 @@ public final class ValueType {
      * 
      * @param error The error string. May be null / empty.
      */
-    public ErrorHolder(String error) {
+    ErrorHolder(String error) {
       this.error = error;
     }
 
@@ -874,7 +874,7 @@ public final class ValueType {
   /**
    * Defines a class holding an invalid value.
    */
-  private static class InvalidHolder {
+  private static final class InvalidHolder {
     
     /**
      * The static instance.
@@ -884,7 +884,7 @@ public final class ValueType {
     /**
      * Initializes a new instance of the InvalidHolder class.
      */
-    public InvalidHolder() {
+    private InvalidHolder() {
     }
 
     /**
@@ -932,7 +932,7 @@ public final class ValueType {
      * 
      * @param value The replaced value. May be null.
      */
-    public ReplacedHolder(Object value) {
+    ReplacedHolder(Object value) {
       this.value = value;
     }
 

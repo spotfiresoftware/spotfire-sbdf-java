@@ -320,7 +320,7 @@ public abstract class ValueArray {
      * @param valueType The type of the held values.
      * @param values The values to hold.
      */
-    public PlainArray(ValueType valueType, TypedArray values) {
+    PlainArray(ValueType valueType, TypedArray values) {
       super(valueType, ArrayEncodingTypeId.PLAIN_ARRAY_ENCODING_TYPE_ID);
       if (!ValueType.getRuntimeType(valueType).equals(values.getComponentType())) {
         throw new ClassCastException(String.format("ValueType '%s' does not match class of TypedArray '%s'",

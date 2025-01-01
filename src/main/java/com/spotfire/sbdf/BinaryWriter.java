@@ -6,6 +6,7 @@
 
 package com.spotfire.sbdf;
 
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -14,7 +15,7 @@ import java.io.OutputStream;
 /**
  * A class that implements the writing of values in SBDF format to an OutputStream.
  */
-public final class BinaryWriter {
+public final class BinaryWriter implements Closeable {
   
   /**
    * The stream that data is written to.
@@ -58,7 +59,7 @@ public final class BinaryWriter {
     try {
       stream.write((byte) (boolValue ? 1 : 0));
     } catch (IOException e) {
-      throw new SerializationException("IOException writing boolan value");
+      throw new SerializationException("IOException writing boolean value");
     }
   }
 
@@ -152,7 +153,7 @@ public final class BinaryWriter {
   /**
    * Writes a byte array to the output stream without prepending the length.
    * 
-   * @param packedArray the arrary to write
+   * @param packedArray the array to write
    */
   void write(byte[] packedArray) {
     try {

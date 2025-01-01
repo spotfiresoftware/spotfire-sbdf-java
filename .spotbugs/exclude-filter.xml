@@ -1,0 +1,33 @@
+<FindBugsFilter>
+
+    <!-- Don't copy the ColumnMetadata for performance reasons -->
+    <Match>
+        <Or>
+            <Class name="com.spotfire.sbdf.TableMetadata" />
+            <Class name="com.spotfire.sbdf.TableMetadataBuilder" />
+        </Or>
+        <Method name="getColumns" />
+        <Bug pattern="EI_EXPOSE_REP" />
+    </Match>
+
+    <!-- False positives -->
+    <Match>
+        <Bug pattern="CT_CONSTRUCTOR_THROW" />
+    </Match>
+
+    <!-- Synchronization shouldn't be needed here, right? -->
+    <Match>
+        <Class name="com.spotfire.sbdf.ValueType$InvalidHolder" />
+        <Method name="getInstance" />
+        <Bug pattern="SING_SINGLETON_GETTER_NOT_SYNCHRONIZED" />
+    </Match>
+
+    <!-- Suppressing these for now, they result in warnings that would bring little benefit to fix -->
+    <Match>
+        <Or>
+            <Bug pattern="EI_EXPOSE_REP" />
+            <Bug pattern="EI_EXPOSE_REP2" />
+        </Or>
+    </Match>
+
+</FindBugsFilter>
