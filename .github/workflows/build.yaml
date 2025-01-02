@@ -29,3 +29,4 @@ jobs:
             target/checkstyle-result.xml
             target/spotbugsXml.xml
             target/site/
+            target/surefire-reports/
