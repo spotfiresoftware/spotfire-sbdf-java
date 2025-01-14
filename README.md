@@ -5,8 +5,8 @@ Binary Data Format (SBDF).
 
 ### Installation
 
-If you need to build this library, execute the `package` goal using
-[Apache Maven](https://maven.apache.org):
+If you must build this library (and cannot use the precompiled version from the GitHub Packages repository), 
+execute the `package` goal using [Apache Maven](https://maven.apache.org):
 ```sh
 $ mvn package
 ```
@@ -33,7 +33,7 @@ To use this library:
     </dependency>
     ```
 
-* Otherwise, add the `sbdf-VERSION.jar` file to your project.
+* If you are not using Apache Maven, add the `sbdf-VERSION.jar` file to your project.
 
 ### License
 BSD-type 3-Clause License.  See the file `LICENSE` included in the repository.
