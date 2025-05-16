@@ -2,7 +2,7 @@ name: Publish Package
 on:
   release:
     types:
-      - edited
+      - prereleased
 jobs:
   publish:
     runs-on: ubuntu-latest
